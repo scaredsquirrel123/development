@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 
 function BakeryItem(prop) {
 
-    const updateCart = prop.updateCart;
-    const cart = prop.cart;
     const item = prop.item;
     const setFavProducts = prop.setFavProducts;
     const favProducts = prop.favProducts;
@@ -23,8 +21,6 @@ function BakeryItem(prop) {
         }
         setFavProducts(updatedFavorites);
 
-        updateCart(updatedFavorites);
-
         setLike((prevState) => !prevState)
         console.log(like);
 
@@ -40,6 +36,7 @@ function BakeryItem(prop) {
             <img src={item.image}></img>
             <h4><strong>{item.name}</strong></h4>
             <h5>${item.price}</h5>
+            <p>{item.type} &amp; {item.rare}</p>
             <button class="button-style" role="button" onClick={handleClick}>
                 Favorite: {like ? "♡" : "♥"}
             </button>

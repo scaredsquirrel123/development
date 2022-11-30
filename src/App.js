@@ -13,8 +13,6 @@ import "./App.css";
 
 function App() {
 
-  const [sort, setSort] = useState("AtoZ");
-
   const squishData = [
     { name: "Abby", type: "sea animal", price: 15, rare: "not rare", image: "abby.png", color:"#abdee6"},
     { name: "Archie", type: "land animal", price: 18, rare: "rare",image: "archie.png", color:"#ffffb5"},
@@ -32,9 +30,9 @@ function App() {
   
   var filteredData = squishData;
 
+  const [sort, setSort] = useState("AtoZ");
   const [type, setType] = useState("All"); 
   const [rare, setRare] = useState("All");
-  const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [favProducts , setFavProducts] = useState([]);
   const [favChecked, setFavChecked] = useState(false);
@@ -166,17 +164,10 @@ function App() {
 
       <div class="wrapper">
       {filteredData.map((item) => ( 
-        <BakeryItem item={item} key={item.name} cart={cart} updateCart={setCart} total={total} setTotal={setTotal} favProducts={favProducts} setFavProducts={setFavProducts}/>
+        <BakeryItem item={item} key={item.name} total={total} setTotal={setTotal} favProducts={favProducts} setFavProducts={setFavProducts}/>
       ))}
       </div>
 
-
-      <div class="cart">
-        <h2>Favorites</h2>
-        {/* TODO: render a list of items in the cart */}
-            {cart.map((e, i) => <p key={i}>{e.name}</p>)}
-            <h4>Total: ${total}</h4>
-      </div>
     </div>
   );
 }
