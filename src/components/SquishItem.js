@@ -1,20 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-function BakeryItem(prop) {
+function SquishItem(prop) {
 
     const item = prop.item;
     const setFavProducts = prop.setFavProducts;
     const favProducts = prop.favProducts;
     const setTotal = prop.setTotal;
-    const [like, setLike] = useState(true); //true is empty heart
+    const [like, setLike] = useState(false); //false is empty heart
     
     const handleClick = () => {
     
         console.log(prop.item.name);
 
-        if(like === true){
+        if(like === false){
             var updatedFavorites = [...favProducts, item]; 
-        } else if(like === false){
+        } else if(like === true){
             var updatedFavorites = [...favProducts];
             var filtered = updatedFavorites.filter(compare => {return item.price !== compare.price}); 
             updatedFavorites = filtered;
@@ -38,11 +38,11 @@ function BakeryItem(prop) {
             <h5>${item.price}</h5>
             <p>{item.type} &amp; {item.rare}</p>
             <button class="button-style" role="button" onClick={handleClick}>
-                Favorite: {like ? "♡" : "♥"}
+                Favorite: {like ? "♥": "♡"}
             </button>
         </div>
     );
   }
   
-export default BakeryItem;
+export default SquishItem;
   

@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
-import BakeryItem from './components/BakeryItem';
+import { useState } from "react";
+import SquishItem from './components/SquishItem';
 import Nav from 'react-bootstrap/Nav';
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Button } from 'reactstrap'; 
 import "./App.css";
 
 
@@ -37,20 +36,6 @@ function App() {
   const [favProducts , setFavProducts] = useState([]);
   const [favChecked, setFavChecked] = useState(false);
 
-  // const updatePrice = () => {
-  //   let sum = 0;
-    
-  //   // cart.forEach(i => sum += i.price);
-  //   favProducts.forEach(i => sum += i.price);
-
-  //   setTotal(sum);
-
-  // }
-
-  // useEffect(() => {
-  //     updatePrice();
-  // })
-
   const selectSortType = eventKey => {
     setSort(eventKey);
   }
@@ -79,10 +64,6 @@ function App() {
       return false
     }
   }
-
-  const handleChange = () => {
-    setFavChecked(!favChecked);
-  };
 
 
   const selectFilterRare = eventKey => {
@@ -164,7 +145,7 @@ function App() {
 
       <div class="wrapper">
       {filteredData.map((item) => ( 
-        <BakeryItem item={item} key={item.name} total={total} setTotal={setTotal} favProducts={favProducts} setFavProducts={setFavProducts}/>
+        <SquishItem item={item} key={item.name} setTotal={setTotal} favProducts={favProducts} setFavProducts={setFavProducts}/>
       ))}
       </div>
 
