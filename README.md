@@ -15,7 +15,8 @@ value, which is the sum of the prices of all the favorited items, is displayed.
 the other features and components called SquishItem that we created in
 SquishItem.js to display the cards for each Squishmallow.
 - Uses props to pass item data to the Components: Passed data using props from
-App.js to SquishItem.js <SquishItem item={item} key={item.name} setTotal={setTotal} favProducts={favProducts} setFavProducts={setFavProducts}/>
+App.js to SquishItem.js < SquishItem item={item} key={item.name} setTotal=
+{setTotal} favProducts={favProducts} setFavProducts={setFavProducts} />
 - Uses state for the list of items, and the UI is reactive to the state: 
 favProducts is a state that we created for the list of favProducts, and whenever
 we click on the favorite button with the heart, the UI alternates between an
@@ -72,7 +73,8 @@ and the corresponding functionality.
 ### How Data is Passed Down Through Components
 Data is passed down from the App component (App.js) to the SquishItem component
 (SquishItem.js) using props. In App.js we have filteredData.map((item) => ( 
- <SquishItem item={item} key={item.name} setTotal={setTotal} favProducts={favProducts} setFavProducts={setFavProducts}/>))
+ < SquishItem item={item} key={item.name} setTotal={setTotal} favProducts=
+ {favProducts} setFavProducts={setFavProducts}/>))
 In this case, we are calling the child component of SquishItem and displaying
 on screen what is in the return statement from SquishItem for each item in
 filteredData. Regarding how to get the data to fill each component, the data
