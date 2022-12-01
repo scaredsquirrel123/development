@@ -65,7 +65,7 @@ container or parent for the other component that we created called SquishItem
 (created in SquishItem.js file). App is the parent component and it contains the
 data for the page and the sorting and filtering functionalities. App 
 communicates with its child SquishItem through props which I will go over in 
-my next answer. SquishItem is a child component that returns the display card  
+my next answer. SquishItem is a child component that returns the display card
 for each Squishmallow and handles when the favorite button is clicked
 and the corresponding functionality. 
 
