@@ -2,28 +2,34 @@ import { useState } from "react";
 
 function SquishItem(prop) {
 
+    // setting props variables names so don't have to keep writing prop. ____
     const item = prop.item;
     const setFavProducts = prop.setFavProducts;
     const favProducts = prop.favProducts;
     const setTotal = prop.setTotal;
+    // state to keep track of if favorite button is on or off
     const [like, setLike] = useState(false); //false is empty heart
     
+
     const handleClick = () => {
     
-        console.log(prop.item.name);
-
-        if(like === false){
+        // if item is unfavorited prior to button click, then add the item to favProducts list and store in variable updatedFavorites
+        if(like === false){ 
             var updatedFavorites = [...favProducts, item]; 
-        } else if(like === true){
+        // if item is favorited prior to button click, then check if the item is in the favProducts/updatedFavorites list and filter it out if so
+        } else if(like === true){ 
             var updatedFavorites = [...favProducts];
             var filtered = updatedFavorites.filter(compare => {return item.price !== compare.price}); 
             updatedFavorites = filtered;
         }
+
+        // set the state of favProducts to updatedFavorites to be used in App component
         setFavProducts(updatedFavorites);
 
+        // set like to the opposite of what is was prior to the button click
         setLike((prevState) => !prevState)
-        console.log(like);
 
+        // recalculate the total price of all the items in updatedFavorites and set total to that value
         var sum = 0;
         updatedFavorites.forEach(i => sum += i.price);
         setTotal(sum);
